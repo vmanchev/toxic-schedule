@@ -1,1 +1,5 @@
-<schedule-slot *ngFor="let timeInterval of intervals" [intervalStart]="timeInterval" (click)="selectAppointmentDateTime(timeInterval)"></schedule-slot>
+<schedule-slot 
+    *ngFor="let timeInterval of intervals" 
+    [intervalStart]="timeInterval" 
+    [timeSlots]="timeSlots"
+    (selectedSlot)="captureSelectedSlot($event)"></schedule-slot>

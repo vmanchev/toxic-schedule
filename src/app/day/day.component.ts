@@ -1,11 +1,13 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
+import { TimeSlot } from '../models/time-slot.model';
+import find from 'lodash/find';
 
 @Component({
   selector: 'schedule-day',
   // tslint:disable-next-line:max-line-length
-  template: '<schedule-slot *ngFor="let timeInterval of intervals" [intervalStart]="timeInterval" (click)="selectAppointmentDateTime(timeInterval)"></schedule-slot>',
+  templateUrl: './day.component.html',
   styleUrls: ['./day.component.css']
 })
 export class DayComponent implements OnInit {
@@ -13,7 +15,8 @@ export class DayComponent implements OnInit {
   @Input() interval: number;
   @Input() startTime: string;
   @Input() endTime: string;
-  @Output() selectedTime = new EventEmitter<Date>();
+  @Input() timeSlots: TimeSlot[];
+  @Output() onSlotSelect = new EventEmitter<TimeSlot>();
 
   intervals: any[];
 
@@ -39,11 +42,29 @@ export class DayComponent implements OnInit {
    * Selected time of the day in milliseconds
    * @param appointmentDateTime
    */
-  selectAppointmentDateTime(appointmentDateTime: number) {
-    this.selectedTime.emit(new Date(appointmentDateTime));
+  captureSelectedSlot(timeSlot: TimeSlot) {
+    this.onSlotSelect.emit(timeSlot);
+  }
+
+  getAppointment(dateTime: Date) {
+    const dt = new Date(dateTime);
+    dt.setSeconds(0);
+    dt.setMilliseconds(0);
+
+    return find(
+      this.timeSlots,
+      (timeSlot: TimeSlot) => dt.getTime() === timeSlot.getDateTime().getTime()
+    );
   }
 
   private datesRange(start, end, startDateTime: Date) {
-    return (new Array(end - start + 1)).fill(undefined).map((_, i) => startDateTime.getTime() + (i + start) * this.interval * 60000);
+    return (new Array(end - start + 1))
+      .fill(undefined)
+      .map((_, i) => {
+        const d = new Date(startDateTime.getTime() + (i + start) * this.interval * 60000);
+        d.setSeconds(0);
+        d.setMilliseconds(0);
+        return d.getTime();
+      });
   }
 }
