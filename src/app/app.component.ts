@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  getSelectedTime($event) {
+    console.log('Selected start time:', $event);
+  }
 }
