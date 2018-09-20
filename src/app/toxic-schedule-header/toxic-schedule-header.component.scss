@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  justify-content: flex-start;
+  border: solid 1px #e4e4e4;
+  border-bottom: none;
+  &:last-of-type {
+      border-bottom: solid 1px #e4e4e4;
+  }
+  &:hover {
+      background-color: #e6e6e6;
+      cursor: pointer;
+  }
+}
+
+.toxic-schedule-slot {
+  &__time {
+      flex: 1 1 20%;
+      padding: 10px 15px;
+  }
+  &__description {
+      flex: 1 2 80%;
+      padding: 10px 15px;
+      &--reserved {
+          background-color: #c2c2c2;
+      }
+  }
+}

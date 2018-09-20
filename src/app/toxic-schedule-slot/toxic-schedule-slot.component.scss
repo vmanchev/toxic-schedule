@@ -20,6 +20,10 @@
     &__description {
         flex: 1 2 80%;
         padding: 10px 15px;
+        margin: 1px;
+        &:hover {
+            background-color: #cccae6;
+        }
         &--reserved {
             background-color: #c2c2c2;
         }

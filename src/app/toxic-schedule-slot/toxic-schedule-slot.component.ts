@@ -1,31 +1,40 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { TimeSlot } from '../models/time-slot.model';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import find from 'lodash/find';
 import { HostBinding } from '@angular/core';
+import { TimeSlot } from '../models/time-slot.model';
+import { SlotInterval } from '../models/slot-interval.model';
 
 @Component({
   selector: 'toxic-schedule-slot',
   templateUrl: './toxic-schedule-slot.component.html',
   styleUrls: ['./toxic-schedule-slot.component.scss']
 })
-export class ToxicScheduleSlotComponent {
+export class ToxicScheduleSlotComponent implements OnInit {
+  @Input()
+  slotInterval: SlotInterval;
+  @Input()
+  reservedSlots: TimeSlot[];
+  @Output()
+  selectedSlot = new EventEmitter<TimeSlot>();
+  @Input()
+  sectors: String[];
 
-  @Input() intervalStart: number;
-  @Input() timeSlots: TimeSlot[];
-  @Output() selectedSlot = new EventEmitter<TimeSlot>();
+  @HostBinding('class')
+  className = 'toxic-schedule-slot';
 
-  @HostBinding('class') className = 'toxic-schedule-slot';
+  ngOnInit() {}
 
-  getTimeSlot(intervalStart: number): TimeSlot {
-    return find(
-      this.timeSlots,
-      (timeSlot: TimeSlot) =>
-        timeSlot.getDateTime().getTime() === intervalStart
-    ) || new TimeSlot(intervalStart);
+  getTimeslot(slotInterval: SlotInterval, sector: string): TimeSlot {
+    return (
+      find(
+        this.reservedSlots,
+        (timeSlot: TimeSlot) =>
+        timeSlot.startTime.getTime() === slotInterval.start && timeSlot.sector === sector
+      ) || new TimeSlot(slotInterval.start, slotInterval.end, sector)
+    );
   }
 
-  selectDaySlot(intervalStart: number) {
-    this.selectedSlot.emit(this.getTimeSlot(intervalStart));
+  selectTimeslot(slotInterval: SlotInterval, sector: string) {
+    this.selectedSlot.emit(this.getTimeslot(slotInterval, sector));
   }
-
 }

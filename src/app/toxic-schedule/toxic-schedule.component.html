@@ -1,5 +1,10 @@
+<toxic-schedule-header
+  [sectors]="getSectors()"
+  ></toxic-schedule-header>
+
 <toxic-schedule-slot
-    *ngFor="let timeInterval of intervals"
-    [intervalStart]="timeInterval"
-    [timeSlots]="timeSlots"
+    *ngFor="let slotInterval of slotIntervals"
+    [slotInterval]="slotInterval"
+    [reservedSlots]="reservedSlots"
+    [sectors]="getSectors()"
     (selectedSlot)="captureSelectedSlot($event)"></toxic-schedule-slot>
