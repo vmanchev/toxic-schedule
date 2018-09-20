@@ -13,28 +13,38 @@ export class ToxicScheduleSlotComponent implements OnInit {
   @Input()
   slotInterval: SlotInterval;
   @Input()
-  reservedSlots: TimeSlot[];
+  reservedSector: any;
   @Output()
   selectedSlot = new EventEmitter<TimeSlot>();
   @Input()
-  sectors: String[];
+  sector: String;
 
   @HostBinding('class')
   className = 'toxic-schedule-slot';
 
-  ngOnInit() {}
-
-  getTimeslot(slotInterval: SlotInterval, sector: string): TimeSlot {
-    return (
-      find(
-        this.reservedSlots,
-        (timeSlot: TimeSlot) =>
-        timeSlot.startTime.getTime() === slotInterval.start && timeSlot.sector === sector
-      ) || new TimeSlot(slotInterval.start, slotInterval.end, sector)
-    );
+  ngOnInit() {
   }
 
-  selectTimeslot(slotInterval: SlotInterval, sector: string) {
-    this.selectedSlot.emit(this.getTimeslot(slotInterval, sector));
+  selectTimeslot(
+    timeSlot: TimeSlot,
+    slotInterval: SlotInterval,
+    sector: string
+  ) {
+    if (!timeSlot) {
+      timeSlot = new TimeSlot(slotInterval.start, slotInterval.end, sector);
+    }
+
+    this.selectedSlot.emit(timeSlot);
+  }
+
+  hasAlreadyStarted(timeSlot: TimeSlot) {
+    if (!timeSlot) {
+      return false;
+    }
+
+    return (
+      timeSlot.startTime.getTime() < this.slotInterval.start &&
+      timeSlot.endTime.getTime() <= this.slotInterval.end
+    );
   }
 }

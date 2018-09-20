@@ -12,16 +12,16 @@
   }
 }
 
-.toxic-schedule-slot {
+.toxic-schedule-header {
   &__time {
-      flex: 1 1 20%;
+      flex: 1 1 4%;
       padding: 10px 15px;
+      min-width: 35px;
   }
   &__description {
       flex: 1 2 80%;
       padding: 10px 15px;
-      &--reserved {
-          background-color: #c2c2c2;
-      }
+      white-space: nowrap;
+      overflow: hidden;
   }
 }

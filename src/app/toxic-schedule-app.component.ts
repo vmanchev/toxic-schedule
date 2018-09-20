@@ -14,43 +14,53 @@ export class ToxicScheduleAppComponent {
 
   constructor() {
     this.interval = 15;
-    this.setTimes('startTime', 10, 0);
-    this.setTimes('endTime', 17, 0);
+    this.startTime = new Date('2018-09-20T10:00:00.000');
+    this.endTime = new Date('2018-09-20T16:00:00.000');
 
     this.reservedSlots = [
       new TimeSlot(
         '2018-09-20T10:30:00',
-        '2018-09-20T10:45:00',
+        '2018-09-20T10:44:59',
         'д-р. Маждаров',
-        'ваксина за котка'
+        'ваксина за котка',
+        1
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
-        '2018-09-20T11:00:00',
+        '2018-09-20T10:59:59',
         'д-р. Маждаров',
-        'ваксина за куче'
+        'ваксина за куче',
+        2
       ),
       new TimeSlot(
         '2018-09-20T11:30:00',
-        '2018-09-20T12:00:00',
+        '2018-09-20T11:59:59',
         'д-р. Маждаров',
-        'операция'
+        'операция',
+        3
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
-        '2018-09-20T11:00:00',
-        'д-р. Енчев',
-        'обезпаразитяване'
+        '2018-09-20T11:14:59',
+        'д-р. Ангелов',
+        'обезпаразитяване',
+        4
+      ),
+      new TimeSlot(
+        '2018-09-20T10:45:00',
+        '2018-09-20T11:14:59',
+        'д-р. Петров',
+        'обезпаразитяване',
+        5
+      ),
+      new TimeSlot(
+        '2018-09-20T10:45:00',
+        '2018-09-20T11:14:59',
+        'д-р. Стоянов',
+        'обезпаразитяване',
+        6
       )
     ];
-  }
-
-  private setTimes(prop: string, hour: number, minutes: number) {
-    this[prop] = new Date();
-    this[prop].setHours(hour);
-    this[prop].setMinutes(minutes);
-    this[prop].setSeconds(0);
-    this[prop].setMilliseconds(0);
   }
 
   getSelectedTime($event) {
