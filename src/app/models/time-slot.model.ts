@@ -3,7 +3,7 @@ export class TimeSlot {
     private description?: string;
     private dateTime: Date;
 
-    setDateTime(dt: Date | string | number) {
+    setDateTime(dt: any) {
 
         if (!(dt instanceof Date)) {
             dt = new Date(dt);

@@ -1,4 +1,4 @@
 <div class="time">{{ intervalStart | date : 'HH:mm' }}</div>
-<div class="description" (click)="selectDaySlot(intervalStart)">
-    {{getTimeSlot(intervalStart).description}}
+<div class="description" (click)="selectDaySlot(intervalStart)" [ngClass]="{'reserved': !!getTimeSlot(intervalStart).getDescription()}">
+  {{getTimeSlot(intervalStart).getDescription()}}
 </div>
