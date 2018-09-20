@@ -12,8 +12,8 @@ import find from 'lodash/find';
 export class ToxicScheduleComponent implements OnInit {
 
   @Input() interval: number;
-  @Input() startTime: string;
-  @Input() endTime: string;
+  @Input() startTime: Date;
+  @Input() endTime: Date;
   @Input() timeSlots: TimeSlot[];
   @Output() slotSelected = new EventEmitter<TimeSlot>();
 
@@ -22,19 +22,9 @@ export class ToxicScheduleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const startDateTime = new Date();
-    startDateTime.setHours(parseInt(this.startTime.split(':')[0], 10));
-    startDateTime.setMinutes(parseInt(this.startTime.split(':')[1], 10));
-    startDateTime.setSeconds(0);
+    const minutes = (this.endTime.getTime() - this.startTime.getTime()) / 60000;
 
-    const endDateTime = new Date();
-    endDateTime.setHours(parseInt(this.endTime.split(':')[0], 10));
-    endDateTime.setMinutes(parseInt(this.endTime.split(':')[1], 10));
-    endDateTime.setSeconds(0);
-
-    const minutes = (endDateTime.getTime() - startDateTime.getTime()) / 60000;
-
-    this.intervals = this.datesRange(1, minutes / this.interval, startDateTime);
+    this.intervals = this.datesRange(1, minutes / this.interval, this.startTime);
   }
 
   /**
