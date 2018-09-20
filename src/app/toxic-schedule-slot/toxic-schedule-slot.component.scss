@@ -12,7 +12,7 @@
     }
 }
 
-.schedule-slot {
+.toxic-schedule-slot {
     &__time {
         flex: 1 1 20%;
         padding: 10px 15px;
@@ -20,7 +20,7 @@
     &__description {
         flex: 1 2 80%;
         padding: 10px 15px;
-        &.reserved {
+        &--reserved {
             background-color: #c2c2c2;
         }
     }

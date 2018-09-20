@@ -5,18 +5,17 @@ import { TimeSlot } from '../models/time-slot.model';
 import find from 'lodash/find';
 
 @Component({
-  selector: 'schedule-day',
-  // tslint:disable-next-line:max-line-length
-  templateUrl: './day.component.html',
-  styleUrls: ['./day.component.scss']
+  selector: 'toxic-schedule',
+  templateUrl: './toxic-schedule.component.html',
+  styleUrls: ['./toxic-schedule.component.scss']
 })
-export class DayComponent implements OnInit {
+export class ToxicScheduleComponent implements OnInit {
 
   @Input() interval: number;
   @Input() startTime: string;
   @Input() endTime: string;
   @Input() timeSlots: TimeSlot[];
-  @Output() onSlotSelect = new EventEmitter<TimeSlot>();
+  @Output() slotSelected = new EventEmitter<TimeSlot>();
 
   intervals: any[];
 
@@ -43,7 +42,7 @@ export class DayComponent implements OnInit {
    * @param appointmentDateTime
    */
   captureSelectedSlot(timeSlot: TimeSlot) {
-    this.onSlotSelect.emit(timeSlot);
+    this.slotSelected.emit(timeSlot);
   }
 
   getAppointment(dateTime: Date) {

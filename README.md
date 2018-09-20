@@ -1,13 +1,15 @@
-# ScheduleCalendar
+# Toxic Schedule component
+
+Render time slots for appointments.
 
 ## Usage
 
 ```
-<schedule-day 
+<toxic-schedule 
     [interval]="15" 
     [startTime]="'07:00'" 
     [endTime]="'19:00'" 
     [timeSlots]="timeSlots"
-    (onSlotSelect)="getSelectedTime($event)">
-</schedule-day>
+    (slotSelected)="getSelectedTime($event)">
+</toxic-schedule>
 ```

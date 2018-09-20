@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayComponent } from './day.component';
+import { ToxicScheduleComponent } from './toxic-schedule.component';
 
-describe('DayComponent', () => {
-  let component: DayComponent;
-  let fixture: ComponentFixture<DayComponent>;
+describe('ToxicScheduleComponent', () => {
+  let component: ToxicScheduleComponent;
+  let fixture: ComponentFixture<ToxicScheduleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DayComponent ]
+      declarations: [ ToxicScheduleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayComponent);
+    fixture = TestBed.createComponent(ToxicScheduleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

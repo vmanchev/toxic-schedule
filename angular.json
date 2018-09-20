@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "schedule-calendar": {
+    "toxic-schedule-calendar": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "schedule",
+      "prefix": "toxic-schedule",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/schedule-calendar",
+            "outputPath": "dist/toxic-schedule-calendar",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "schedule-calendar:build"
+            "browserTarget": "toxic-schedule-calendar:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "schedule-calendar:build:production"
+              "browserTarget": "toxic-schedule-calendar:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "schedule-calendar:build"
+            "browserTarget": "toxic-schedule-calendar:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "schedule-calendar-e2e": {
+    "toxic-schedule-calendar-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "schedule-calendar:serve"
+            "devServerTarget": "toxic-schedule-calendar:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "schedule-calendar:serve:production"
+              "devServerTarget": "toxic-schedule-calendar:serve:production"
             }
           }
         },
@@ -123,7 +123,7 @@
       }
     }
   },
-  "defaultProject": "schedule-calendar",
+  "defaultProject": "toxic-schedule-calendar",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"

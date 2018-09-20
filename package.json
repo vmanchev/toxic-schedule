@@ -1,6 +1,6 @@
 {
-  "name": "schedule-calendar",
-  "version": "0.0.0",
+  "name": "toxic-schedule-calendar",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

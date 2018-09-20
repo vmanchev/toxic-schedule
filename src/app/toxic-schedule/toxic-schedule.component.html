@@ -1,0 +1,5 @@
+<toxic-schedule-slot
+    *ngFor="let timeInterval of intervals"
+    [intervalStart]="timeInterval"
+    [timeSlots]="timeSlots"
+    (selectedSlot)="captureSelectedSlot($event)"></toxic-schedule-slot>
