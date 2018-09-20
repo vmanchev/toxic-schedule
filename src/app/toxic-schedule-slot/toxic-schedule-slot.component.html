@@ -1,4 +1,8 @@
-<div class="toxic-schedule-slot__time">{{ intervalStart | date : 'HH:mm' }}</div>
-<div class="toxic-schedule-slot__description" (click)="selectDaySlot(intervalStart)" [ngClass]="{'toxic-schedule-slot__description--reserved': !!getTimeSlot(intervalStart).getDescription()}">
-  {{getTimeSlot(intervalStart).getDescription()}}
+<div class="toxic-schedule-slot__time">{{ slotInterval.start | date : 'HH:mm' }}</div>
+<div
+  *ngFor="let sector of sectors"
+  class="toxic-schedule-slot__description"
+  (click)="selectTimeslot(slotInterval, sector)"
+  [ngClass]="{'toxic-schedule-slot__description--reserved': !!getTimeslot(slotInterval, sector).description}">
+  {{getTimeslot(slotInterval, sector).description}}
 </div>

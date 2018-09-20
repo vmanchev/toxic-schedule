@@ -10,15 +10,38 @@ export class ToxicScheduleAppComponent {
   interval: number;
   startTime: Date;
   endTime: Date;
-  timeSlots: TimeSlot[];
+  reservedSlots: TimeSlot[];
 
   constructor() {
     this.interval = 15;
     this.setTimes('startTime', 10, 0);
     this.setTimes('endTime', 17, 0);
-    this.timeSlots = [
-      new TimeSlot('2018-09-20T11:00', 'Dentist visit'),
-      new TimeSlot('2018-09-20T12:30', 'Meeting with my team')
+
+    this.reservedSlots = [
+      new TimeSlot(
+        '2018-09-20T10:30:00',
+        '2018-09-20T10:45:00',
+        'д-р. Маждаров',
+        'ваксина за котка'
+      ),
+      new TimeSlot(
+        '2018-09-20T10:45:00',
+        '2018-09-20T11:00:00',
+        'д-р. Маждаров',
+        'ваксина за куче'
+      ),
+      new TimeSlot(
+        '2018-09-20T11:30:00',
+        '2018-09-20T12:00:00',
+        'д-р. Маждаров',
+        'операция'
+      ),
+      new TimeSlot(
+        '2018-09-20T10:45:00',
+        '2018-09-20T11:00:00',
+        'д-р. Енчев',
+        'обезпаразитяване'
+      )
     ];
   }
 

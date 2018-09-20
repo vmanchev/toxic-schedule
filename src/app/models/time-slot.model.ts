@@ -1,31 +1,26 @@
 export class TimeSlot {
+  startTime: Date;
+  endTime: Date;
+  sector: string;
+  description?: string;
 
-    private description?: string;
-    private dateTime: Date;
+  constructor(
+    startTime: Date | string | number,
+    endTime: Date | string | number,
+    sector: string,
+    description?: string
+  ) {
+    this.startTime = !(startTime instanceof Date)
+      ? new Date(startTime)
+      : startTime;
+    this.startTime.setSeconds(0);
+    this.startTime.setMilliseconds(0);
 
-    setDateTime(dt: any) {
+    this.endTime = !(endTime instanceof Date) ? new Date(endTime) : endTime;
+    this.endTime.setSeconds(0);
+    this.endTime.setMilliseconds(0);
 
-        if (!(dt instanceof Date)) {
-            dt = new Date(dt);
-        }
-
-        this.dateTime = dt;
-    }
-
-    getDateTime(): Date {
-        return this.dateTime;
-    }
-
-    setDescription(description: string) {
-        this.description = description;
-    }
-
-    getDescription(): string {
-        return this.description;
-    }
-
-    constructor(dateTime: Date | string | number, description?: string) {
-        this.setDateTime(dateTime);
-        this.setDescription(description);
-    }
+    this.sector = sector;
+    this.description = description;
+  }
 }

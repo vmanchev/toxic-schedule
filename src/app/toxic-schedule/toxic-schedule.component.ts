@@ -2,7 +2,9 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 import { TimeSlot } from '../models/time-slot.model';
-import find from 'lodash/find';
+import map from 'lodash/map';
+import uniq from 'lodash/uniq';
+import { SlotInterval } from '../models/slot-interval.model';
 
 @Component({
   selector: 'toxic-schedule',
@@ -10,21 +12,34 @@ import find from 'lodash/find';
   styleUrls: ['./toxic-schedule.component.scss']
 })
 export class ToxicScheduleComponent implements OnInit {
+  @Input()
+  interval: number;
+  @Input()
+  startTime: Date;
+  @Input()
+  endTime: Date;
+  @Input()
+  reservedSlots: TimeSlot[];
+  @Output()
+  slotSelected = new EventEmitter<TimeSlot>();
 
-  @Input() interval: number;
-  @Input() startTime: Date;
-  @Input() endTime: Date;
-  @Input() timeSlots: TimeSlot[];
-  @Output() slotSelected = new EventEmitter<TimeSlot>();
+  slotIntervals: SlotInterval[];
 
-  intervals: any[];
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+
     const minutes = (this.endTime.getTime() - this.startTime.getTime()) / 60000;
 
-    this.intervals = this.datesRange(1, minutes / this.interval, this.startTime);
+    this.slotIntervals = this.datesRange(
+      1,
+      minutes / this.interval,
+      this.startTime
+    );
+  }
+
+  getSectors(): String[] {
+    return uniq(map(this.reservedSlots, 'sector')).sort();
   }
 
   /**
@@ -35,25 +50,24 @@ export class ToxicScheduleComponent implements OnInit {
     this.slotSelected.emit(timeSlot);
   }
 
-  getAppointment(dateTime: Date) {
-    const dt = new Date(dateTime);
-    dt.setSeconds(0);
-    dt.setMilliseconds(0);
+  private datesRange(
+    startIndex: number,
+    endIndex: number,
+    startDateTime: Date
+  ): SlotInterval[] {
+    return new Array(endIndex - startIndex + 1).fill(undefined).map((_, i) => {
+      const start = new Date(
+        startDateTime.getTime() + (i + startIndex) * this.interval * 60000
+      );
+      start.setSeconds(0);
+      start.setMilliseconds(0);
 
-    return find(
-      this.timeSlots,
-      (timeSlot: TimeSlot) => dt.getTime() === timeSlot.getDateTime().getTime()
-    );
-  }
+      const end = start.getTime() + this.interval * 60000;
 
-  private datesRange(start, end, startDateTime: Date) {
-    return (new Array(end - start + 1))
-      .fill(undefined)
-      .map((_, i) => {
-        const d = new Date(startDateTime.getTime() + (i + start) * this.interval * 60000);
-        d.setSeconds(0);
-        d.setMilliseconds(0);
-        return d.getTime();
-      });
+      return {
+        start: start.getTime(),
+        end: end
+      };
+    });
   }
 }
