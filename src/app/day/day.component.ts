@@ -8,7 +8,7 @@ import find from 'lodash/find';
   selector: 'schedule-day',
   // tslint:disable-next-line:max-line-length
   templateUrl: './day.component.html',
-  styleUrls: ['./day.component.css']
+  styleUrls: ['./day.component.scss']
 })
 export class DayComponent implements OnInit {
 
