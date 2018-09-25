@@ -1,4 +1,5 @@
 export class TimeSlot {
+  id?: any;
   startTime: Date;
   endTime: Date;
   sector: string;
@@ -8,7 +9,8 @@ export class TimeSlot {
     startTime: Date | string | number,
     endTime: Date | string | number,
     sector: string,
-    description?: string
+    description?: string,
+    id?: any
   ) {
     this.startTime = !(startTime instanceof Date)
       ? new Date(startTime)
@@ -22,5 +24,6 @@ export class TimeSlot {
 
     this.sector = sector;
     this.description = description;
+    this.id = id;
   }
 }
