@@ -1,11 +1,7 @@
 :host {
   display: flex;
   justify-content: flex-start;
-  border: solid 1px #e4e4e4;
-  border-bottom: none;
-  &:last-of-type {
-      border-bottom: solid 1px #e4e4e4;
-  }
+  border: none;
   &:hover {
       background-color: #e6e6e6;
       cursor: pointer;

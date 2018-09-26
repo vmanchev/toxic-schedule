@@ -11,11 +11,19 @@ export class ToxicScheduleAppComponent {
   startTime: Date;
   endTime: Date;
   reservedSlots: TimeSlot[];
+  sectors: String[];
 
   constructor() {
     this.interval = 15;
     this.startTime = new Date('2018-09-20T10:00:00.000');
     this.endTime = new Date('2018-09-20T16:00:00.000');
+
+    this.sectors = [
+      'д-р. Маждаров',
+      'д-р. Ангелов',
+      'д-р. Петров',
+      'д-р. Стоянов'
+    ];
 
     this.reservedSlots = [
       new TimeSlot(

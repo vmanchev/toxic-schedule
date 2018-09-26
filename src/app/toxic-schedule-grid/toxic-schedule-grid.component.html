@@ -1,0 +1,17 @@
+<ul class="toxic-schedule-grid__time">
+  <li *ngFor="let slotInterval of slotIntervals; let last = last;" [ngClass]="{'toxic-schedule-grid__time--last': last}">{{ slotInterval.start | date : 'HH:mm' }}</li>
+</ul>
+<div class="toxic-schedule-grid__sectors">
+
+  <div class="toxic-schedule-grid__sector" *ngFor="let sector of sectors">
+    <div class="toxic-schedule-grid__slot" *ngFor="let slotInterval of slotIntervals; let last = last" 
+    [ngClass]="{'toxic-schedule-grid__slot--last': last}" (click)="selectTimeslot(null, slotInterval, sector)">&nbsp;</div>
+    <div class="toxic-schedule-grid__appointment" 
+      *ngFor="let reservedSlot of getReservedSlotsPerSector(sector)"
+      (click)="selectTimeslot(reservedSlot)"
+      [style.top.%]="getRelativeStyle(reservedSlot).top" 
+      [style.height.%]="getRelativeStyle(reservedSlot).height">
+      {{ reservedSlot.description }}
+    </div>
+  </div>
+</div>

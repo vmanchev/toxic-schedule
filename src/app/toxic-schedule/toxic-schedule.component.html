@@ -1,17 +1,9 @@
-<toxic-schedule-header [sectors]="getSectors()"></toxic-schedule-header>
-
-<div class="wrapper">
-  <ul class="wrapper__time">
-    <li *ngFor="let slotInterval of slotIntervals">{{ slotInterval.start | date : 'HH:mm' }}</li>
-  </ul>
-  <div class="wrapper__sectors" *ngFor="let sector of getSectors()">
-      <div class="wrapper__sector" *ngFor="let slotInterval of slotIntervals" (click)="selectTimeslot(reservedSector, slotInterval, sector)">&nbsp;</div>
-      <toxic-schedule-appointment 
-      *ngFor="let reservedSlot of getReservedSlotsPerSector(sector)" 
-      (click)="selectTimeslot(reservedSlot)"
-      [reservedSlot]="reservedSlot"
-      [scheduleStartTime]="this.startTime"
-      [scheduleEndTime]="this.endTime"
-      ></toxic-schedule-appointment>
-  </div>
-</div>
+<toxic-schedule-header [sectors]="sectors"></toxic-schedule-header>
+<toxic-schedule-grid
+  [slotIntervals]="slotIntervals"
+  [sectors]="sectors"
+  [reservedSlots]="reservedSlots"
+  [startTime]="startTime"
+  [endTime]="endTime"
+  (cellSelected)="selectTimeslot($event)">
+</toxic-schedule-grid>

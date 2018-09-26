@@ -3,17 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { ToxicScheduleAppComponent } from './toxic-schedule-app.component';
 import { ToxicScheduleComponent } from './toxic-schedule/toxic-schedule.component';
-import { ToxicScheduleSlotComponent } from './toxic-schedule-slot/toxic-schedule-slot.component';
 import { ToxicScheduleHeaderComponent } from './toxic-schedule-header/toxic-schedule-header.component';
-import { ToxicScheduleAppointmentComponent } from './toxic-schedule-appointment/toxic-schedule-appointment.component';
+import { ToxicScheduleGridComponent } from './toxic-schedule-grid/toxic-schedule-grid.component';
 
 @NgModule({
   declarations: [
     ToxicScheduleAppComponent,
     ToxicScheduleComponent,
-    ToxicScheduleSlotComponent,
     ToxicScheduleHeaderComponent,
-    ToxicScheduleAppointmentComponent
+    ToxicScheduleGridComponent
   ],
   imports: [BrowserModule],
   providers: [],

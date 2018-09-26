@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToxicScheduleSlotComponent } from './toxic-schedule-slot.component';
+import { ToxicScheduleGridComponent } from './toxic-schedule-grid.component';
 
-describe('ToxicScheduleSlotComponent', () => {
-  let component: ToxicScheduleSlotComponent;
-  let fixture: ComponentFixture<ToxicScheduleSlotComponent>;
+describe('ToxicScheduleGridComponent', () => {
+  let component: ToxicScheduleGridComponent;
+  let fixture: ComponentFixture<ToxicScheduleGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToxicScheduleSlotComponent ]
+      declarations: [ ToxicScheduleGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToxicScheduleSlotComponent);
+    fixture = TestBed.createComponent(ToxicScheduleGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
