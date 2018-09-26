@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from "@angular/core";
+import { Component, OnInit, EventEmitter, HostListener } from "@angular/core";
 import { Input } from "@angular/core";
 import { Output } from "@angular/core";
 import { TimeSlot } from "../models/time-slot.model";
@@ -19,11 +19,27 @@ export class ToxicScheduleComponent implements OnInit {
   @Input()
   reservedSlots: TimeSlot[];
   @Input()
-  sectors: String[];
+  sectors: string[];
   @Output()
   slotSelected = new EventEmitter<TimeSlot>();
 
+  /**
+   * Sector, selected via dropdown on smaller screen resolutions
+   */
+  txSector: string;
+
   slotIntervals: SlotInterval[];
+
+  private sectorSource: string[];
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    if (event.target.innerWidth >= 576) {
+      this.sectorSource = this.sectors;
+    } else {
+      this.sectorSource = this.txSector ? [this.txSector] : [this.sectors[0]];
+    }
+  }
 
   ngOnInit() {
     // total minuites in the entire time frame
@@ -36,6 +52,11 @@ export class ToxicScheduleComponent implements OnInit {
     );
 
     this.sectors = this.sectors.sort();
+    this.onResize({
+      target: {
+        innerWidth: window.innerWidth
+      }
+    });
   }
 
   /**
@@ -68,9 +89,24 @@ export class ToxicScheduleComponent implements OnInit {
 
   /**
    * Emit the selected time slot outside the component
-   * @param timeSlot 
+   * @param timeSlot
    */
   selectTimeslot(timeSlot: TimeSlot) {
     this.slotSelected.emit(timeSlot);
+  }
+
+  txDisplaySector(txSelectedSector) {
+    this.txSector = txSelectedSector;
+  }
+
+  getSectors() {
+    // const a = this.txSector ? [this.txSector] : this.sectors;
+    this.onResize({
+      target: {
+        innerWidth: window.innerWidth
+      }
+    });
+
+    return this.sectorSource;
   }
 }

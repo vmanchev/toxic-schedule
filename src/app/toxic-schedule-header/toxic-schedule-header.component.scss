@@ -10,14 +10,52 @@
 
 .toxic-schedule-header {
   &__time {
-      flex: 1 1 4%;
+      flex: 1 1 1%;
       padding: 10px 15px;
       min-width: 35px;
+
+      @media screen and (min-width: 507px) and (max-width: 575px) {
+        flex: 1 1 0;
+      }
+
+      @media screen and (min-width: 576px) and (max-width: 768px) {
+        flex: 1 1 9%;
+      }
+
+      @media screen and (min-width: 769px) and (max-width: 889px) {
+        flex: 1 1 10%;
+      }
+
+      @media screen and (min-width: 890px) and (max-width: 992px) {
+        flex: 1 1 11%;
+      }
+
+      @media screen and (min-width: 993px) and (max-width: 1199px) {
+        flex: 1 1 11%;
+      }
+
+      @media screen and (min-width: 1200px) and (max-width: 1499px) {
+        flex: 1 1 12%;
+      }
+
+      @media screen and (min-width: 1500px) {
+        flex: 1 1 13%;
+      }
   }
   &__description {
-      flex: 1 2 80%;
-      padding: 10px 15px;
+      flex: 1 0 80%;
+      padding: 0;
       white-space: nowrap;
       overflow: hidden;
+      @media screen and (min-width: 576px) {
+        flex: 1 2 80%;
+        padding: 10px 15px;
+      }
+
+      select {
+        height: 3em;
+        width: 100%;
+        text-indent: 5px;
+      }
   }
 }
