@@ -16,56 +16,56 @@ export class ToxicScheduleAppComponent {
   constructor() {
     this.interval = 15;
     this.startTime = new Date('2018-09-20T10:00:00.000');
-    this.endTime = new Date('2018-09-20T16:00:00.000');
+    this.endTime = new Date('2018-09-20T13:00:00.000');
 
     this.sectors = [
-      'д-р. Маждаров',
-      'д-р. Ангелов',
-      'д-р. Петров',
-      'д-р. Стоянов'
+      'Anakin Skywalker',
+      'Chewbacca',
+      'Han Solo',
+      'Leia Organa'
     ];
 
     this.reservedSlots = [
       new TimeSlot(
         '2018-09-20T10:30:00',
         '2018-09-20T10:44:59',
-        'д-р. Маждаров',
-        'ваксина за котка',
+        'Anakin Skywalker',
+        'Dentist',
         1
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
         '2018-09-20T10:59:59',
-        'д-р. Маждаров',
-        'ваксина за куче',
+        'Anakin Skywalker',
+        'Meeting with Joe',
         2
       ),
       new TimeSlot(
         '2018-09-20T11:30:00',
         '2018-09-20T11:59:59',
-        'д-р. Маждаров',
-        'операция',
+        'Anakin Skywalker',
+        'Call Adam',
         3
       ),
       new TimeSlot(
-        '2018-09-20T10:45:00',
-        '2018-09-20T11:14:59',
-        'д-р. Ангелов',
-        'обезпаразитяване',
+        '2018-09-20T10:00:00',
+        '2018-09-20T10:29:59',
+        'Chewbacca',
+        'Board meeting',
         4
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
         '2018-09-20T11:14:59',
-        'д-р. Петров',
-        'обезпаразитяване',
+        'Han Solo',
+        'Dentist',
         5
       ),
       new TimeSlot(
-        '2018-09-20T10:45:00',
-        '2018-09-20T11:14:59',
-        'д-р. Стоянов',
-        'обезпаразитяване',
+        '2018-09-20T11:45:00',
+        '2018-09-20T12:29:59',
+        'Leia Organa',
+        'Kinds/Lunch',
         6
       )
     ];
