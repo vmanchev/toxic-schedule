@@ -1,6 +1,13 @@
-<div class="toxic-schedule-header__time"></div>
+<div class="toxic-schedule-header__time tx-sm"></div>
 <div
   *ngFor="let sector of sectors"
-  class="toxic-schedule-header__description">
+  class="toxic-schedule-header__description tx-sm">
   {{ sector }}
 </div>
+
+<div class="toxic-schedule-header__description tx-xs">
+  <select (change)="txSetSector($event)">
+      <option *ngFor="let sector of sectors" [value]="sector">{{sector}}</option>
+  </select>
+</div>
+

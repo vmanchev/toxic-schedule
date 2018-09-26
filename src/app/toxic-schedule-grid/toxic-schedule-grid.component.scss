@@ -24,7 +24,11 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    flex: 1 0 80%;
+    flex: 6;
+
+    @media screen and (min-width: 575px) {
+      flex: 1 0 80%;
+    }
   }
   &__sector {
     flex: 1 2 80%;
