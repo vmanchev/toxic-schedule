@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, HostListener } from "@angular/core";
 import { Input } from "@angular/core";
 import { Output } from "@angular/core";
-import { TimeSlot } from "../models/time-slot.model";
-import { SlotInterval } from "../models/slot-interval.model";
+import { TimeSlot } from "./models/time-slot.model";
+import { SlotInterval } from "./models/slot-interval.model";
 
 @Component({
   selector: "toxic-schedule",

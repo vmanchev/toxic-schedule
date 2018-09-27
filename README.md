@@ -6,6 +6,23 @@ Desktop layout             |  Mobile layout
 :-------------------------:|:-------------------------:
 ![Desktop](docs/toxic-schedule-sm.png)  |  ![Mobile](docs/toxic-schedule-xs.png)
 
+## Demo
+1. Clone the project and install its dependencies
+```
+git clone https://github.com/vmanchev/toxic-schedule.git
+cd toxic-schedule
+npm install
+```
+
+2. Run the application
+```
+ng serve
+```
+
+3. Open your browser and navigate to `http://localhost:3000`
+
+4. Play with it - change the data from src/app/app.component.ts file.
+
 ## Features
 - multiple sectors (e.g. all doctors in the clinic);
 - customizable slot intervals;
@@ -127,3 +144,6 @@ The following sample data was used to build the above screenshots:
       )
     ];
 ```
+
+## Build the library
+Run `ng build toxic-schedule` and find the output inside the `dist/toxic-schedule` folder.
