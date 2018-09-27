@@ -6,7 +6,7 @@ Desktop layout             |  Mobile layout
 :-------------------------:|:-------------------------:
 ![Desktop](docs/toxic-schedule-sm.png)  |  ![Mobile](docs/toxic-schedule-xs.png)
 
-## Feachers
+## Features
 - multiple sectors (e.g. all doctors in the clinic);
 - customizable slot intervals;
 - customizable start and end date/time;
