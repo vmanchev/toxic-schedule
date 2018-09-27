@@ -1,0 +1,14 @@
+{
+  "name": "toxic-schedule",
+  "version": "0.0.1",
+  "description": "Angular 6 module, rendering time slots for appointments.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmanchev/toxic-schedule.git"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

@@ -49,8 +49,8 @@ export class ToxicScheduleGridComponent {
    */
   selectTimeslot(
     timeSlot: TimeSlot,
-    slotInterval: SlotInterval,
-    sector: string
+    slotInterval?: SlotInterval,
+    sector?: string
   ) {
     if (!timeSlot) {
       timeSlot = new TimeSlot(slotInterval.start, slotInterval.end, sector);

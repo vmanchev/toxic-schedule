@@ -121,6 +121,41 @@
           }
         }
       }
+    },
+    "toxic-schedule": {
+      "root": "projects/toxic-schedule",
+      "sourceRoot": "projects/toxic-schedule/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/toxic-schedule/tsconfig.lib.json",
+            "project": "projects/toxic-schedule/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/toxic-schedule/src/test.ts",
+            "tsConfig": "projects/toxic-schedule/tsconfig.spec.json",
+            "karmaConfig": "projects/toxic-schedule/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/toxic-schedule/tsconfig.lib.json",
+              "projects/toxic-schedule/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "toxic-schedule-calendar",
