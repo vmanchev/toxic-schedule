@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { TimeSlot } from "../../dist/toxic-schedule";
+import { TimeSlot } from "projects/toxic-schedule/src/lib/models/time-slot.model";
 
 @Component({
   selector: "app-root",

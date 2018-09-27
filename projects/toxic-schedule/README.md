@@ -2,55 +2,11 @@
 
 Angular 6 module, rendering time slots for appointments.
 
-Desktop layout             |  Mobile layout
-:-------------------------:|:-------------------------:
-![Desktop](docs/toxic-schedule-sm.png)  |  ![Mobile](docs/toxic-schedule-xs.png)
+## Install
 
-## Demo
-1. Clone the project and install its dependencies
 ```
-git clone https://github.com/vmanchev/toxic-schedule.git
-cd toxic-schedule
-npm install
+npm install --save toxic-schedule
 ```
-
-2. Run the application
-```
-ng serve
-```
-
-3. Open your browser and navigate to `http://localhost:3000`
-
-4. Play with it - change the data from src/app/app.component.ts file.
-
-## Features
-- multiple sectors (e.g. all doctors in the clinic);
-- customizable slot intervals;
-- customizable start and end date/time;
-- display reserved slots
-
-## How it works
-You'll get a nice schedule with sectors (columns) and time slots (rows). When the user 
-clicks on any slot, *slotSelected* event will be dispatched. Use your own handler
-function to capture the selected [TimeSlot](src/app/models/time-slot.model.ts) object.
-
-The minimum required setup data would be:
-- slots interval in minites
-- at least one sector
-- start date/time
-- end date/time
-
-In addition, you can provide a list of TimeSlot objects, which will be used as reserved 
-slots. These will be displayed over the main grid of time slots, with different background, 
-and the value from TimeSlot's *description* property will be displayed.
-
-
-## Responsive layout
-For small screens (below 576px in width), only one sector at a time will be displayed. All 
-sectors are accessible via a dropdown. When the user selects a new sector, the related 
-TimeSlot grid will be displayed along with the reserved slots, if any.
-
-For bigger screens (576px and above), all sectors will be displayed. 
 
 ## Usage
 
@@ -105,6 +61,55 @@ const timeSlot = new TimeSlot(startTime, endTime, sector, [description]);
 - **endTime** - Slot start date/time. Date, string or milliseconds.
 - **sector** - Sector name, string.
 - **description** - Optional, plain text description for this time slot. 
+
+## Demo
+1. Clone the project and install its dependencies
+```
+git clone https://github.com/vmanchev/toxic-schedule.git
+cd toxic-schedule
+npm install
+```
+
+2. Run the application
+```
+ng serve
+```
+
+3. Open your browser and navigate to `http://localhost:3000`
+
+4. Play with it - change the data from src/app/app.component.ts file.
+
+Screenshots can be found in the github repo.
+
+## Features
+- multiple sectors (e.g. all doctors in the clinic);
+- customizable slot intervals;
+- customizable start and end date/time;
+- display reserved slots
+
+## How it works
+You'll get a nice schedule with sectors (columns) and time slots (rows). When the user 
+clicks on any slot, *slotSelected* event will be dispatched. Use your own handler
+function to capture the selected [TimeSlot](src/app/models/time-slot.model.ts) object.
+
+The minimum required setup data would be:
+- slots interval in minites
+- at least one sector
+- start date/time
+- end date/time
+
+In addition, you can provide a list of TimeSlot objects, which will be used as reserved 
+slots. These will be displayed over the main grid of time slots, with different background, 
+and the value from TimeSlot's *description* property will be displayed.
+
+
+## Responsive layout
+For small screens (below 576px in width), only one sector at a time will be displayed. All 
+sectors are accessible via a dropdown. When the user selects a new sector, the related 
+TimeSlot grid will be displayed along with the reserved slots, if any.
+
+For bigger screens (576px and above), all sectors will be displayed. 
+
 
 ## Sample data
 The following sample data was used to build the above screenshots:

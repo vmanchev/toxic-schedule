@@ -59,3 +59,20 @@
       }
   }
 }
+
+.tx-xs {
+  display: block;
+}
+
+.tx-sm {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .tx-xs {
+    display: none;
+  }
+  .tx-sm {
+    display: block;
+  }
+}
