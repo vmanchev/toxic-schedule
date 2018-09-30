@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter, HostBinding } from "@angular/core";
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  HostBinding
+} from "@angular/core";
 import { SlotInterval } from "../models/slot-interval.model";
 import { TimeSlot } from "../models/time-slot.model";
 
@@ -21,15 +27,15 @@ export class ToxicScheduleGridComponent {
   @Output()
   cellSelected = new EventEmitter<TimeSlot>();
 
-  @HostBinding('class')
-  className = 'toxic-schedule-grid';
+  @HostBinding("class")
+  className = "toxic-schedule-grid";
 
   /**
    * Get list of appointments for a sector
    * @param sector
    */
   getReservedSlotsPerSector(sector: string): TimeSlot[] {
-    if(!this.reservedSlots) {
+    if (!this.reservedSlots) {
       return [];
     }
     return this.reservedSlots.filter((rs: TimeSlot) => rs.sector === sector);
@@ -37,12 +43,12 @@ export class ToxicScheduleGridComponent {
 
   /**
    * Emits the selected time slot to ToxicSchedule parent component
-   * 
+   *
    * When the selected time slot is already booked, it will be emitted as is.
-   * When the selected time slot is available, a new TimeSlot object will be 
-   * created with the selected SlotInterval start and end time, as well as 
+   * When the selected time slot is available, a new TimeSlot object will be
+   * created with the selected SlotInterval start and end time, as well as
    * the sector name.
-   * 
+   *
    * @param timeSlot TimeSlot
    * @param slotInterval SlotInterval, optional, only for free time slots
    * @param sector string, Sector identifier, optional, only for free time slots
@@ -61,8 +67,14 @@ export class ToxicScheduleGridComponent {
 
   getRelativeStyle(reservedSlot: TimeSlot) {
     return {
-      top: (reservedSlot.startTime.getTime() - this.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime()) * 100,
-      height: (reservedSlot.endTime.getTime() - reservedSlot.startTime.getTime()) / (this.endTime.getTime() - this.startTime.getTime()) * 100
-    }
+      top:
+        ((reservedSlot.startTime.getTime() - this.startTime.getTime()) /
+          (this.endTime.getTime() - this.startTime.getTime())) *
+        100,
+      height:
+        Math.ceil(((reservedSlot.endTime.getTime() - reservedSlot.startTime.getTime()) /
+          (this.endTime.getTime() - this.startTime.getTime())) *
+        103)
+    };
   }
 }

@@ -57,8 +57,8 @@
     padding-right: 5px;
     white-space: nowrap;
     overflow: hidden;
-    left: 3px;
-    width: calc(100% - 15px);
+    left: 0;
+    width: 100%;
 
     &:hover {
       background-color: #b7b5cf;
