@@ -1,6 +1,6 @@
 {
   "name": "toxic-schedule",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Angular 6 module, rendering time slots for appointments.",
   "repository": {
     "type": "git",

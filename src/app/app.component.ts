@@ -60,7 +60,7 @@ export class AppComponent {
         "2018-09-20T11:45:00",
         "2018-09-20T12:29:59",
         "Leia Organa",
-        "Kinds/Lunch",
+        "Kids/Lunch",
         6
       )
     ];
