@@ -1,13 +1,19 @@
-import { Component, OnInit, EventEmitter, HostListener, DoCheck } from "@angular/core";
-import { Input } from "@angular/core";
-import { Output } from "@angular/core";
-import { TimeSlot } from "./models/time-slot.model";
-import { SlotInterval } from "./models/slot-interval.model";
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  HostListener,
+  DoCheck
+} from '@angular/core';
+import { Input } from '@angular/core';
+import { Output } from '@angular/core';
+import { TimeSlot } from './models/time-slot.model';
+import { SlotInterval } from './models/slot-interval.model';
 
 @Component({
-  selector: "toxic-schedule",
-  templateUrl: "./toxic-schedule.component.html",
-  styleUrls: ["./toxic-schedule.component.scss"]
+  selector: 'toxic-schedule',
+  templateUrl: './toxic-schedule.component.html',
+  styleUrls: ['./toxic-schedule.component.scss']
 })
 export class ToxicScheduleComponent implements DoCheck {
   @Input()
@@ -32,7 +38,7 @@ export class ToxicScheduleComponent implements DoCheck {
 
   private sectorSource: string[];
 
-  @HostListener("window:resize", ["$event"])
+  @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (event.target.innerWidth >= 576) {
       this.sectorSource = this.sectors;
@@ -42,7 +48,6 @@ export class ToxicScheduleComponent implements DoCheck {
   }
 
   ngDoCheck() {
-
     // total minuites in the entire time frame
     const minutes = (this.endTime.getTime() - this.startTime.getTime()) / 60000;
 

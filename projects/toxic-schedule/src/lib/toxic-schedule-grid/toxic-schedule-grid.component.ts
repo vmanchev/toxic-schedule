@@ -4,14 +4,14 @@ import {
   Output,
   EventEmitter,
   HostBinding
-} from "@angular/core";
-import { SlotInterval } from "../models/slot-interval.model";
-import { TimeSlot } from "../models/time-slot.model";
+} from '@angular/core';
+import { SlotInterval } from '../models/slot-interval.model';
+import { TimeSlot } from '../models/time-slot.model';
 
 @Component({
-  selector: "toxic-schedule-grid",
-  templateUrl: "./toxic-schedule-grid.component.html",
-  styleUrls: ["./toxic-schedule-grid.component.scss"]
+  selector: 'toxic-schedule-grid',
+  templateUrl: './toxic-schedule-grid.component.html',
+  styleUrls: ['./toxic-schedule-grid.component.scss']
 })
 export class ToxicScheduleGridComponent {
   @Input()
@@ -27,8 +27,8 @@ export class ToxicScheduleGridComponent {
   @Output()
   cellSelected = new EventEmitter<TimeSlot>();
 
-  @HostBinding("class")
-  className = "toxic-schedule-grid";
+  @HostBinding('class')
+  className = 'toxic-schedule-grid';
 
   /**
    * Get list of appointments for a sector
@@ -72,9 +72,9 @@ export class ToxicScheduleGridComponent {
           (this.endTime.getTime() - this.startTime.getTime())) *
         100,
       height:
-        Math.ceil(((reservedSlot.endTime.getTime() - reservedSlot.startTime.getTime()) /
+        ((reservedSlot.endTime.getTime() - reservedSlot.startTime.getTime()) /
           (this.endTime.getTime() - this.startTime.getTime())) *
-        103)
+        100
     };
   }
 }
