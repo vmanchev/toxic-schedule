@@ -37,14 +37,14 @@ export class AppModule {}
 2. Use the following HTML
 
 ```
-<toxic-schedule 
+<lib-toxic-schedule 
     [interval]="15" 
     [startTime]="startTime" 
     [endTime]="endTime" 
     [reservedSlots]="reservedSlots"
     [sectors]="sectors"
     (slotSelected)="getSelectedTime($event)">
-</toxic-schedule>
+</lib-toxic-schedule>
 ```
 
 - **interval** - number, slot intervals in minutes

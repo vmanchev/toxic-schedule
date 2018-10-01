@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'toxic-schedule-header',
+  selector: 'lib-toxic-schedule-header',
   templateUrl: './toxic-schedule-header.component.html',
   styleUrls: ['./toxic-schedule-header.component.scss']
 })

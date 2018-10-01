@@ -9,7 +9,7 @@ import { SlotInterval } from '../models/slot-interval.model';
 import { TimeSlot } from '../models/time-slot.model';
 
 @Component({
-  selector: 'toxic-schedule-grid',
+  selector: 'lib-toxic-schedule-grid',
   templateUrl: './toxic-schedule-grid.component.html',
   styleUrls: ['./toxic-schedule-grid.component.scss']
 })
