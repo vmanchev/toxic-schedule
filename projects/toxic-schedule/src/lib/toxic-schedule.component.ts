@@ -11,7 +11,7 @@ import { TimeSlot } from './models/time-slot.model';
 import { SlotInterval } from './models/slot-interval.model';
 
 @Component({
-  selector: 'toxic-schedule',
+  selector: 'lib-toxic-schedule',
   templateUrl: './toxic-schedule.component.html',
   styleUrls: ['./toxic-schedule.component.scss']
 })

@@ -1,9 +1,9 @@
-<toxic-schedule-header [sectors]="sectors" (txSelectedSector)="txDisplaySector($event)"></toxic-schedule-header>
-<toxic-schedule-grid
+<lib-toxic-schedule-header [sectors]="sectors" (txSelectedSector)="txDisplaySector($event)"></lib-toxic-schedule-header>
+<lib-toxic-schedule-grid
   [slotIntervals]="slotIntervals"
   [sectors]="getSectors()"
   [reservedSlots]="reservedSlots"
   [startTime]="startTime"
   [endTime]="endTime"
   (cellSelected)="selectTimeslot($event)">
-</toxic-schedule-grid>
+</lib-toxic-schedule-grid>
