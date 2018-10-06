@@ -88,7 +88,7 @@ export class ToxicScheduleComponent implements DoCheck {
 
       return {
         start: start.getTime(),
-        end: start.getTime() + this.interval * 60000 - 1000
+        end: start.getTime() + this.interval * 60000
       } as SlotInterval;
     });
   }

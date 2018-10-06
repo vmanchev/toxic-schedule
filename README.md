@@ -133,42 +133,42 @@ The following sample data was used to build the above screenshots:
     this.reservedSlots = [
       new TimeSlot(
         '2018-09-20T10:30:00',
-        '2018-09-20T10:44:59',
+        '2018-09-20T10:45:00',
         'Anakin Skywalker',
         'Dentist',
         1
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
-        '2018-09-20T10:59:59',
+        '2018-09-20T11:00:00',
         'Anakin Skywalker',
         'Meeting with Joe',
         2
       ),
       new TimeSlot(
         '2018-09-20T11:30:00',
-        '2018-09-20T11:59:59',
+        '2018-09-20T12:00:00',
         'Anakin Skywalker',
         'Call Adam',
         3
       ),
       new TimeSlot(
         '2018-09-20T10:00:00',
-        '2018-09-20T10:29:59',
+        '2018-09-20T10:30:00',
         'Chewbacca',
         'Board meeting',
         4
       ),
       new TimeSlot(
         '2018-09-20T10:45:00',
-        '2018-09-20T11:14:59',
+        '2018-09-20T11:15:00',
         'Han Solo',
         'Dentist',
         5
       ),
       new TimeSlot(
         '2018-09-20T11:45:00',
-        '2018-09-20T12:29:59',
+        '2018-09-20T12:30:00',
         'Leia Organa',
         'Kinds/Lunch',
         6
