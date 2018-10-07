@@ -4,12 +4,14 @@ export class TimeSlot {
   endTime: Date;
   sector: string;
   description?: string;
+  params?: any;
 
   constructor(
     startTime: Date | string | number,
     endTime: Date | string | number,
     sector: string,
     description?: string,
+    params?: any,
     id?: any
   ) {
     this.startTime = !(startTime instanceof Date)
@@ -24,6 +26,7 @@ export class TimeSlot {
 
     this.sector = sector;
     this.description = description;
+    this.params = params;
     this.id = id;
   }
 }

@@ -58,13 +58,15 @@ will be passed, eigther empty or one of the preselected.
 ## TimeSlot model
 
 ```
-const timeSlot = new TimeSlot(startTime, endTime, sector, [description]);
+const timeSlot = new TimeSlot(startTime, endTime, sector, [description, [params, [id]]]);
 ```
 
 - **startTime** - Slot start date/time. Date, string or milliseconds.
 - **endTime** - Slot start date/time. Date, string or milliseconds.
 - **sector** - Sector name, string.
 - **description** - Optional, plain text description for this time slot. 
+- **params** - Optional, any params you might need to pass over.
+- **id** - Optional, slot id, if you have assigned one.
 
 ## Demo
 1. Clone the project and install its dependencies
