@@ -2,8 +2,7 @@ import {
   Component,
   OnInit,
   EventEmitter,
-  HostListener,
-  DoCheck
+  HostListener
 } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
@@ -15,7 +14,7 @@ import { SlotInterval } from './models/slot-interval.model';
   templateUrl: './toxic-schedule.component.html',
   styleUrls: ['./toxic-schedule.component.scss']
 })
-export class ToxicScheduleComponent implements DoCheck {
+export class ToxicScheduleComponent implements OnInit {
   @Input()
   interval: number;
   @Input()
@@ -47,7 +46,7 @@ export class ToxicScheduleComponent implements DoCheck {
     }
   }
 
-  ngDoCheck() {
+  ngOnInit() {
     // total minuites in the entire time frame
     const minutes = (this.endTime.getTime() - this.startTime.getTime()) / 60000;
 
